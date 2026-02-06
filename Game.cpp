@@ -122,10 +122,9 @@ void Game::nextTurn() {
     }
   }
 
-  if (!gameOver && spawnQueue.empty() && zombieCount == 0) {
-    gameOver = true;
-    std::cout << "You Win! All zombies defeated!" << std::endl;
-  }
+//   if (!gameOver && spawnQueue.empty() && zombieCount == 0) {
+//     gameOver = true;
+//   }
 }
 
 void Game::plant(std::string type, int r, int c) {
@@ -145,7 +144,7 @@ void Game::plant(std::string type, int r, int c) {
 
   if (type == "Sunflower" || type == "SunFlower") {
     if (sun < SUNFLOWER_COST) {
-      std::cout << "Not enough sun to plant Sunflower! Nothing is planted."
+      std::cout << "Not enough sun!"
                 << std::endl;
       return;
     }
@@ -154,7 +153,7 @@ void Game::plant(std::string type, int r, int c) {
     sun -= SUNFLOWER_COST;
   } else if (type == "Peashooter" || type == "PeaShooter") {
     if (sun < PEASHOOTER_COST) {
-      std::cout << "Not enough sun to plant Peashooter! Nothing is planted."
+      std::cout << "Not enough sun!"
                 << std::endl;
       return;
     }
@@ -163,7 +162,7 @@ void Game::plant(std::string type, int r, int c) {
     sun -= PEASHOOTER_COST;
   } else if (type == "WallNut" || type == "WallNut") {
     if (sun < WALLNUT_COST) {
-      std::cout << "Not enough sun to plant WallNut! Nothing is planted."
+      std::cout << "Not enough sun!"
                 << std::endl;
       return;
     }

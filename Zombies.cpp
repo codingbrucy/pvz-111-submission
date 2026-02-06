@@ -29,7 +29,7 @@ void BucketHeadZombie::act(Game& game) {
 }
 
 PoleVaultZombie::PoleVaultZombie(int r, int c)
-    : Zombie(r, c, BASIC_ZOMBIE_HP, "PoleVault", "V") {
+    : Zombie(r, c, 1.5*BASIC_ZOMBIE_HP, "PoleVault", "V") {
 }
 
 void PoleVaultZombie::act(Game& game) {// so many edge cases here
