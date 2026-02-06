@@ -35,10 +35,7 @@ void Peashooter::act(Game& game) {
         GameObject* object = game.getObjectAt(row, c);
         if(object && (object->getSymbol() == "Z" || object->getSymbol() == "B" || object->getSymbol() == "V")){
             object->takeDamage(PEASHOOTER_DMG);
-            if(object->getHP() <= 0) {
-                // board owns memory; delete + clear the tile
-                game.removeObjectAt(row, c);
-            }
+            // Cleanup phase will handle deletion of dead objects
             return;
         }
     }

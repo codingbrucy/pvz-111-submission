@@ -15,9 +15,9 @@ void Simulation::update() {
             int neighbors = countNeighbors(i, j);
             if (neighbors < 2 || neighbors > 3) {// underpopulation or overpopulation
                 nextGrid[i][j] = 0;
-            } else if (grid[i][j] > 0 && neighbors == 2) {// live cell with 2 neighbors
+            } else if (grid[i][j] > 0 && (neighbors == 2 || neighbors == 3)) {// live cell with 2 or 3 neighbors survives
                 nextGrid[i][j] = grid[i][j]+1;
-            } else if (grid[i][j]==0 && neighbors == 3) {// dead cell with 3 neighbors
+            } else if (grid[i][j]==0 && neighbors == 3) {// dead cell with 3 neighbors becomes alive
                 nextGrid[i][j] = 1;
             }
         }

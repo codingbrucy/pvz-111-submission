@@ -7,15 +7,12 @@ Zombie::Zombie(int r, int c, int hp, std::string name, std::string sym)
 
 // The "Standard" Behavior
 void Zombie::act(Game& game) {
-    GameObject* object = game.getObjectAt(row, col - 1); 
+    GameObject* object = game.getObjectAt(row, col - 1);
     if(object){
         std::string symbol = object->getSymbol();
-        if(symbol == "S" || symbol == "P" || symbol == "W") {// plant? eat it,dying logic handled here
+        if(symbol == "S" || symbol == "P" || symbol == "W") {// plant? eat it
             object->takeDamage(ZOMBIE_DMG);
-            if(object->getHP() <= 0) {
-                // remove the plant from the game (board owns memory)
-                game.removeObjectAt(row, col - 1);
-            }
+            // Cleanup phase will handle deletion of dead objects
         }
         return; // if it has any object to its left, this zombie don't move
     }

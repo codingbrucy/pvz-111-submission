@@ -4,13 +4,12 @@
 #include "GameObject.h"
 // 🧟‍♂️ Zombie 🧟‍♂️
 /*
-- special zombie constructor only takes row,col. (hp,name and symbol are handled internally)
+- Special zombie constructor only takes row,col. (hp,name and symbol are handled internally)
 - Normal zombie constructor takes row,col,hp,name and symbol.
 - BucketHeadZombie is a normal zombie with 3x hp
 - PoleVaultZombie is a normal zombie when jump condition is not met (which is rigorously checked in PoleVaultZombie::act())
-- plant dying logic is handled in Zombie::act(), which is funky to me
-- collision is handled partialy in Zombie::act (by assuming if a zombie is on zombie's left, it is a collision),
-                         and partialy in Game::nextTurn(), with left to right iteration
+- Plant damage is applied in Zombie::act(), but deletion of dead objects is handled in Game::nextTurn() cleanup phase
+- Collision is handled in Zombie::act() by checking if there's an object to the left (zombie or plant)
 */
 class Zombie : public GameObject {
 public:

@@ -36,8 +36,7 @@ public:
 class WallNut : public Plant {
 public:
     WallNut(int r, int c); // Constructor sets cost = 50, hp = 300
-    // does it act? 
-    void act(Game& game) override;
+    void act(Game& game) override; // WallNut acts but does nothing (defensive plant)
 };
 
 #endif
