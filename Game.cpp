@@ -63,7 +63,7 @@ void Game::loadLevel(std::string filename) {
 
 void Game::nextTurn() {
   turn++;
-  std::cout << "Processing Turn " << turn << "..." << std::endl;
+  std::cout << "Sun: "<< sun << " | Turn: " << turn << "..." << std::endl;
 
   // 1. Spawn Phase: Check spawnQueue and spawn all eligible zombies
   // Use while loop to spawn all waves that should spawn on or before this turn
