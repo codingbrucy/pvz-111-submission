@@ -34,10 +34,14 @@ PoleVaultZombie::PoleVaultZombie(int r, int c)
 
 void PoleVaultZombie::act(Game& game) {// so many edge cases here
    // PoleVault is special, first it checks if a plant is one tile to its left 
+   if(this->Jumped){
+    Zombie::act(game);
+    return;
+   }
     GameObject* left1 = game.getObjectAt(row, col - 1);
     if (left1 && (left1->getSymbol() == "S" || left1->getSymbol() == "P" || left1->getSymbol() == "W")) {
         // it can jump if jumped is false and it PV is not in col 1 AAANND if left2 is empty
-        if(this->col != 1 && !this->Jumped && game.getObjectAt(row, col - 2) == nullptr){
+        if(this->col != 1 && game.getObjectAt(row, col - 2) == nullptr){
             // it can jump
             game.moveObject(this, row, col - 2);
             this->Jumped = true;
